@@ -24,7 +24,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Loading the configurations
-secrets=toml.load("secrets.toml")
+# secrets=toml.load("secrets.toml")
 # load_dotenv("config.env")
 
 
