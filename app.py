@@ -96,8 +96,8 @@ def convert_png_to_pdf(png_image):
 st.title("Google Cloud Gen AI Study Jams")
 st.write("Enter your Study Jams registered Email ID and Name to download your certificate. Your certificate will be available if you have successfully completed the Jams. Contact Team GDG on Campus HITAM for any issues.")
 
-email = st.text_input("Email", placeholder="Enter your email")
-name = st.text_input("Name", placeholder="Enter your name (Password)")
+email = st.text_input("Email", placeholder="Enter your Email")
+name = st.text_input("Name", placeholder="Enter your Name")
 
 # Web App Functionality
 if st.button("Generate Certificate"):
