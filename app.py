@@ -3,7 +3,6 @@ from pymongo import MongoClient
 from PIL import Image, ImageDraw, ImageFont
 import qrcode
 from io import BytesIO
-import toml
 # from dotenv import load_dotenv
 # import os
 
@@ -29,9 +28,9 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 # MongoDB connection details
-MONGO_URI = secrets.get('db_uri')
-DB_NAME = secrets.get('db_name')
-DB_COLLECTION = secrets.get('db_collection')
+MONGO_URI = st.secrets["db_uri"]
+DB_NAME = st.secrets["db_name"]
+DB_COLLECTION = st.secrets["db_collection"]
 # MONGO_URI = os.getenv('db_uri')
 # DB_NAME = os.getenv('db_name')
 # DB_COLLECTION = os.getenv('db_collection')
@@ -40,10 +39,10 @@ db = client[DB_NAME]
 collection = db[DB_COLLECTION]
 
 # Getting collection data
-col1 = secrets["columns"].get("col1")
-col2 = secrets["columns"].get("col2")
-col3 = secrets["columns"].get("col3")
-col4 = secrets["columns"].get("col4")
+col1 = st.secrets["col1"]
+col2 = st.secrets["col2"]
+col3 = st.secrets["col3"]
+col4 = st.secrets["col4"]
 # NAME = os.getenv('col1')
 # EMAIL = os.getenv('col2')
 # URL = os.getenv('col3')
