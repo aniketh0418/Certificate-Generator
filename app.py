@@ -39,10 +39,10 @@ db = client[DB_NAME]
 collection = db[DB_COLLECTION]
 
 # Getting collection data
-col1 = st.secrets["col1"]
-col2 = st.secrets["col2"]
-col3 = st.secrets["col3"]
-col4 = st.secrets["col4"]
+NAME = st.secrets["col1"]
+EMAIL = st.secrets["col2"]
+URL = st.secrets["col3"]
+VALIDATION = st.secrets["col4"]
 # NAME = os.getenv('col1')
 # EMAIL = os.getenv('col2')
 # URL = os.getenv('col3')
