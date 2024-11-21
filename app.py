@@ -6,10 +6,17 @@ from io import BytesIO
 from dotenv import load_dotenv
 import os
 
+# Set the app configuration
+st.set_page_config(
+    page_title="Certificates@GenAI",
+    page_icon="icon.png", 
+    layout="centered",    
+    initial_sidebar_state="auto"
+)
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
-            
+            header {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
