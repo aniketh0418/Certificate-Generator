@@ -3,8 +3,9 @@ from pymongo import MongoClient
 from PIL import Image, ImageDraw, ImageFont
 import qrcode
 from io import BytesIO
-from dotenv import load_dotenv
-import os
+import toml
+# from dotenv import load_dotenv
+# import os
 
 # Set the app configuration
 st.set_page_config(
@@ -23,21 +24,30 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Loading the configurations
-load_dotenv("config.env")
+secrets=toml.load("secrets.toml")
+# load_dotenv("config.env")
+
 
 # MongoDB connection details
-MONGO_URI = os.getenv('db_uri')
-DB_NAME = os.getenv('db_name')
-DB_COLLECTION = os.getenv('db_collection')
+MONGO_URI = secrets.get('db_uri')
+DB_NAME = secrets.get('db_name')
+DB_COLLECTION = secrets.get('db_collection')
+# MONGO_URI = os.getenv('db_uri')
+# DB_NAME = os.getenv('db_name')
+# DB_COLLECTION = os.getenv('db_collection')
 client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
 collection = db[DB_COLLECTION]
 
 # Getting collection data
-NAME = os.getenv('col1')
-EMAIL = os.getenv('col2')
-URL = os.getenv('col3')
-VALIDATION = os.getenv('col4')
+col1 = secrets["columns"].get("col1")
+col2 = secrets["columns"].get("col2")
+col3 = secrets["columns"].get("col3")
+col4 = secrets["columns"].get("col4")
+# NAME = os.getenv('col1')
+# EMAIL = os.getenv('col2')
+# URL = os.getenv('col3')
+# VALIDATION = os.getenv('col4')
 
 # Function to generate PNG certificate in memory
 def generate_certificate(user):
